@@ -284,20 +284,20 @@ PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
 # NFC
-ifdef TARGET_NFC_CHIPSET
-PRODUCT_PACKAGES += \
+#ifdef TARGET_NFC_CHIPSET
+#PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     SecureElement \
     NfcNci \
     Tag
-ifeq ($(TARGET_NFC_CHIPSET),snxxx)
-PRODUCT_PACKAGES += \
+#ifeq ($(TARGET_NFC_CHIPSET),snxxx)
+#PRODUCT_PACKAGES += \
     android.hardware.nfc_snxxx@1.2-service
-else ifeq ($(TARGET_NFC_CHIPSET),st21)
-PRODUCT_PACKAGES += \
+#else ifeq ($(TARGET_NFC_CHIPSET),st21)
+#PRODUCT_PACKAGES += \
     android.hardware.nfc-service.st \
     android.hardware.nfc@1.2.vendor
-endif
+#endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
