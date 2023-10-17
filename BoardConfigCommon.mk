@@ -8,7 +8,7 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 COMMON_PATH := device/oplus/sm8350-common
-
+DEVICE_PATH := device/oneplus/oscaro
 # A/B
 AB_OTA_UPDATER := true
 
