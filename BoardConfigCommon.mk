@@ -131,11 +131,11 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)-kernel/vendor-modules/,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
 
 # Kernel modules
-#BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
-#BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
-#BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-#BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.recovery))
-#TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.recovery))
+TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -196,9 +196,11 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOOT_SECURITY_PATCH := 2022-12-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
-# SEPolicy
-#include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
-#include hardware/oplus/sepolicy/qti/SEPolicy.mk
+# Sepolicy
+SELINUX_IGNORE_NEVERALLOWS := true
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+include hardware/oplus/sepolicy/qti/SEPolicy.mk
+
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
