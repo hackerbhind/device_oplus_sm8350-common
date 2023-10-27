@@ -32,20 +32,6 @@ prebuilt_etc {
     recovery: true,
 }
 
-prebuilt_etc {
-    name: "ueventd.oplus.rc",
-    filename: "ueventd.rc",
-    src: "ueventd.oplus.rc",
-    device_specific: true,
-}
-
-prebuilt_etc {
-    name: "ueventd.qcom.rc",
-    filename: "ueventd.rc",
-    src: "ueventd.qcom.rc",
-    vendor: true,
-}
-
 sh_binary {
     name: "init.oplus.sh",
     src: "init.oplus.sh",
